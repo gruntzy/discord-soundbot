@@ -17,4 +17,7 @@ RUN apk del --quiet build-base
 # Build
 RUN yarn build
 
+VOLUME /app/config/config
+VOLUME /app/sounds
+
 CMD ["yarn", "serve"]
