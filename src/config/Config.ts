@@ -19,7 +19,7 @@ export default class Config implements ConfigInterface {
   public deafen!: boolean;
   public game!: string;
 
-  private readonly CONFIG_PATH = path.join(process.cwd(), 'config', 'config.json');
+  private readonly CONFIG_PATH = path.join(process.cwd(), 'config', 'config', 'config.json');
   private readonly MODIFIABLE_FIELDS = [
     'language',
     'prefix',

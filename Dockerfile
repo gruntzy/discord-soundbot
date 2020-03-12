@@ -1,4 +1,4 @@
-FROM node:carbon-alpine
+FROM node:13.10-alpine
 
 LABEL maintainer="Marko Kajzer <markokajzer91@gmail.com>"
 
