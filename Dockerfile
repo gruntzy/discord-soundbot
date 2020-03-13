@@ -1,23 +1,21 @@
-FROM node:13.10-alpine
+FROM node:13
 
 LABEL maintainer="Marko Kajzer <markokajzer91@gmail.com>"
 
 # Install ffmpeg and other deps
-RUN apk add --no-cache --quiet build-base ffmpeg git make python
+RUN apt-get update
+RUN apt-get install --allow-unauthenticated -y ffmpeg git make python
 
 WORKDIR /app
 COPY package.json yarn.lock ./
-RUN yarn --silent
+RUN yarn
 
 COPY . /app
 
 # Cleanup
-RUN apk del --quiet build-base
+# RUN apk del --quiet build-base
 
 # Build
 RUN yarn build
-
-VOLUME /app/config/config
-VOLUME /app/sounds
 
 CMD ["yarn", "serve"]
